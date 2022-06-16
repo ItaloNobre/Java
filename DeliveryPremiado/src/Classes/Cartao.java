@@ -25,6 +25,7 @@ public class Cartao {
 			System.out.println("------------------------------------------------------");
 			System.out.print(" Seu Decimo Premiado foi ativado, e sua proxima compra "
 					+ "é gratis compra no valor de até " + compraTotal + " $");
+			System.out.println("");
 			return compraTotal;
 		}
 		return 0;

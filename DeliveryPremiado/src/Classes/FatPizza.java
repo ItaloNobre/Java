@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import Herança.Interface;
 
-public class FatPizza implements Interface{
+public class FatPizza {
 	
 	double pizzaPequena = 25.00;
 	double pizzaGrande = 50.00;

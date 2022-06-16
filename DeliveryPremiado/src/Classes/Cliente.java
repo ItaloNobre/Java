@@ -8,7 +8,17 @@ public class Cliente {
 	private String senha;
 	private double compra;
 	private double saldo;
-	Cartao cartao = new Cartao();
+	private Cartao cartao;
+
+	Scanner input = new Scanner(System.in);
+
+	public Cliente(String cliente, String senha) {
+
+		this.cliente = cliente;
+		this.senha = senha;
+		this.cartao = new Cartao(); // cada cliente novo terá seu proprio cartão
+
+	}
 
 	public String getCliente() {
 		return cliente;
@@ -16,6 +26,7 @@ public class Cliente {
 
 	public void setCliente(String cliente) {
 		this.cliente = cliente;
+
 	}
 
 	public String getSenha() {
@@ -26,20 +37,12 @@ public class Cliente {
 		this.senha = senha;
 	}
 
-	Scanner input = new Scanner(System.in);
-
-	public Cliente(String cliente, String senha) {
-
-		this.cliente = cliente;
-		this.senha = senha;
-	}
-
 	public void telaInicial() {
 		int escolha = 0;
 		System.out.println("");
 		System.out.println("--------------------------TELA INICIAL----------------------");
-		System.out.println("Bem Vindo ao APP TambémQueroDelivery");
-		System.out.println("temos 2 parceiros Cadastrados");
+		System.out.println("Bem Vindo ao APP Delivery Premiado");
+		System.out.println("temos 3 parceiros Cadastrados");
 		System.out.println("Digite 1 pra escolher - FatPizza");
 		System.out.println("Digite 2 pra escolher - BurguerField");
 		System.out.println("Digite 3 pra escolher - Ailton");
@@ -89,39 +92,51 @@ public class Cliente {
 
 	}
 
+	public void telaInicialPagamento() {
+
+	}
+
 	public void pagar() {
 
 		int opcao = 0;
 		while (!(opcao == 1 || opcao == 2)) {
 
 			if (this.compra > 0) {
+
 				System.out.println("-----------------TELA DE PAGAMENTO------------------------");
-				System.out.println("Sua conta deu: " + this.compra + "$");
-				System.out.println("Efetuar pagamento: 1 - SIM 2- NAO");
+				System.out.println("Sua conta deu: " + this.compra + " $");
+				System.out.println(this.saldo > 0 ? "Sua conta sera paga com o Decimo premiado!" : "");
+				double debito = (this.saldo > 0 ? this.compra - this.saldo : 0);
+
+				System.out.println("Efetuar pagamento: 1 - SIM 2- CANCELAR");
 				opcao = input.nextInt();
+
+				if (opcao == 1 && debito > 0) {
+					System.out.println("ficou um debito de " + debito + " $");
+					System.out.println("Efetuar pagamento do restante: 1-SIM  2- CANCELAR A COMPRA");
+					int opc = input.nextInt();
+
+					if (opc == 1) {
+
+						this.saldo = 0;
+						this.compra = 0;
+					}
+
+				}
+
 				if (opcao == 1) {
+
 					System.out.println("Pagamento realizado com Sucesso");
 					System.out.println("Agora é so aguardar seu pedido chegar");
 					System.out.println("Obrigado e volte sempre!");
+					this.compra = 0;
 
-					if (saldo > 0) {
-						this.compra -= saldo;
-						if (compra > 0) {
-							System.out.println("Ainda resta um debito de:" + this.compra + " $");
-							System.out.println("Efetuar pagamento: 1 - SIM 2- NAO");
-							int pagamentoExtra = input.nextInt();
-							System.out.println("Obrigado e Volte Sempre");
-
-						}
-					} else {
-						this.compra = 0;
-					}
-					// cartao.verificarPremio();
-					System.out.println("--------------------------------------------------------");
 					if (cartao.verificarPremio() > 0) {
+						System.out.println("");
 						System.out.println("ESCOLHA COM SABEDORIA!");
 						saldo = cartao.verificarPremio();
 						telaInicial();
+
 					}
 
 				} else if (opcao == 2) {

@@ -1,13 +1,13 @@
 package Main;
 
-import Classes.Autenticar;
+import Classes.Login;
 
 public class Main {
 
 	public static void main(String[] args) {
 
-		Autenticar autenticar = new Autenticar();
-		autenticar.login();
+		Login login = new Login();
+		login.login();
 
 	}
 

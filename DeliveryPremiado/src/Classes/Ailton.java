@@ -17,7 +17,7 @@ public class Ailton {
 		System.out.println("Digite 2 para Refrigerante 1L - PREÇO: $7");
 		System.out.println("Digite 3 para Refrigerante 2L- PREÇO: $10");
 		System.out.println("Digite 3 para Cerveja Longnet- PREÇO: $5");
-		System.out.println("------------------------------------------");
+		System.out.println("----------------------------------------");
 
 		System.out.println("Escolha seu lanche");
 		Scanner input = new Scanner(System.in);
@@ -25,18 +25,18 @@ public class Ailton {
 
 		switch (escolha) {
 		case "1":
-			System.out.println("Quantas refrigerantes de 500ml deseja:");
+			System.out.println("Quantos refrigerantes de 500ml deseja:");
 			qtda = input.nextInt();
 
 			return refrigeranteP * qtda;
 
 		case "2":
-			System.out.println("Quantas refrigerantes de 500ml deseja:");
+			System.out.println("Quantos refrigerantes de 1L deseja:");
 			qtda = input.nextInt();
 			return refrigeranteM * qtda;
 
 		case "3":
-			System.out.println("Quantas refrigerantes de 500ml deseja:");
+			System.out.println("Quantos refrigerantes de 2L deseja:");
 			qtda = input.nextInt();
 
 			return refrigeranteG * qtda;

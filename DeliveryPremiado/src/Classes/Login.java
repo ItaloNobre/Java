@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Vector;
 
-public class Autenticar {
+import javax.sql.RowSetInternal;
+
+public class Login {
 
 	Scanner input = new Scanner(System.in);
 	private ArrayList<Cliente> clientes = new ArrayList<Cliente>();
@@ -14,12 +16,12 @@ public class Autenticar {
 		int opcao = 0;
 
 		do {
-			System.out.println("------------BEM VINDO AO APP------------");
+			System.out.println("------------BEM VINDO AO APP DELIVEY PREMIADO------------");
 			System.out.println("");
 			System.out.println("Digite - 1 para Fazer Cadastro");
 			System.out.println("Digite - 2 para fazer Login");
 			System.out.println("");
-			System.out.println("-------------------------------------");
+			System.out.println("---------------------------------------------------------");
 			int escolha = input.nextInt();
 
 			if (escolha == 1) {
