@@ -14,7 +14,7 @@ public class Catalogo {
 		this.produtos = produtos;
 	}
 
-	public boolean exibirProdutos() {
+	public void exibirProdutos() {
 		System.out.println("--------LISTA DE PRODUTOS NO CATALOGO------------");
 		for (Produto produto : produtos) {
 			System.out.println(" [Nome: " + produto.getNome() + " Preço: " + produto.getPrecoFinal() + " Quantidade: "
@@ -22,7 +22,6 @@ public class Catalogo {
 
 		}
 		System.out.println("-------------------------------------------------");
-		return true;
 	}
 
 }

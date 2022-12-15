@@ -52,6 +52,7 @@ public class CarrinhoCompras {
 		System.out.println("produto nao existe no catalogo!");
 		return false;
 	}
+	
 
 	public boolean listarCompra() {
 		System.out.println("----------TELA DE CARRINHO DE COMPRAS------------");
